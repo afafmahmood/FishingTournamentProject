@@ -22,9 +22,7 @@ namespace FishingTournament02.Controllers
             this.roleManager = roleManager;
             this.db = db;
         }
-
-
-        
+                
         public IActionResult Register()
         {
             return View();
