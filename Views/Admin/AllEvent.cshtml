@@ -1,0 +1,42 @@
+﻿@model IEnumerable<FishingTournament02.Models.Events>
+<p><a asp-controller="Admin" asp-action="AddEvent">Add an event</a></p>
+
+
+
+@{
+    if (Model.Count() < 1)
+    {
+        <p>No events in database yet.</p>
+    }
+    else
+    {
+        <h3>All Events</h3>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+
+                <tr>
+                    <th>Event ID</th>
+                    <th>Event Name</th>
+                    <th>Event Address</th>
+                    <th>Event City, State, Zip</th>
+                    <th>Event Phone Number</th>
+                    <th>Event Capacity</th>
+                    <th>Event URL</th>
+
+                </tr>
+                @foreach (var events in Model)
+                {
+                    <tr>
+                        <td>@events.EventID</td>
+                        <td>@events.EventName</td>
+                        <td>@events.EventAddress</td>
+                        <td>@events.EventCity @events.EventState @events.EventZipCode</td>
+                        <td>@events.EventPhone</td>
+                        <td><a href="@events.EventURL">Event Website</a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+    }
+}

@@ -9,6 +9,8 @@ namespace FishingTournament02.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
+        public DbSet<Events> Events { get; set; }
         public ApplicationDbContext(DbContextOptions
             <ApplicationDbContext> options)
             :base(options)
