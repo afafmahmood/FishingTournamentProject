@@ -40,7 +40,7 @@ namespace FishingTournament02
            app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseStaticFiles();
+           
 
             app.UseEndpoints(endpoints =>
             {
