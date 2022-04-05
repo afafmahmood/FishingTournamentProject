@@ -120,7 +120,26 @@ namespace FishingTournament02.Controllers
             return RedirectToAction("AllEvent");
         }
 
+
+        public IActionResult AllProfile()
+        {
+            var profiles = db.Profiles.ToList();
+            return View(profiles);
+        }
+
+
+        public IActionResult AddProfile()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddProfile(Profile profile)
+        {
+            db.Add(profile);
+            await db.SaveChangesAsync();
+            return RedirectToAction("AllProfile");
+        }
+
     }
 }
 
-//Admin Controller

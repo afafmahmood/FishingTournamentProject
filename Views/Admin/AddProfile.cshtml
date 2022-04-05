@@ -1,0 +1,29 @@
+﻿@model FishingTournament02.Models.Profile
+
+<p class="text-info lead"> Fill out all fields</p>
+
+<h2>Add Your Profile</h2>
+<form asp-controller="Admin" asp-action="AddProfile" method="post" class="form-horizontal">
+
+
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" />    <br />
+
+
+
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" />     <br />
+
+
+
+        <label asp-for="Address"></label>
+        <input asp-for="Address">       <br />
+
+
+
+        <label asp-for="Telephone"></label>
+        <input asp-for="Telephone" />    <br />
+
+
+    <button type="submit">Add Profile</button>
+</form>

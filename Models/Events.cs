@@ -22,5 +22,3 @@ namespace FishingTournament02.Models
     }
 }
 
-
-// event info
