@@ -1,0 +1,29 @@
+﻿@model FishingTournament02.ViewModels.AccountLoginViewModel
+
+<h2>User Login</h2>
+<form asp-action="Login" method="post" class="form-horizontal">
+    <div asp-validation-summary="All"></div>
+    <fieldset class="form-group">
+        <label asp-for="Email" class="control-label col-xs-2"> </label>
+        <div class="col-xs-10">
+            <input asp-for="Email" class="form-control" />
+        </div>
+    </fieldset>
+
+    <span asp-validation-for="Email"></span>
+    <br />
+
+    <fieldset class="form-group">
+        <label asp-for="Password" class="control-label col-xs-2"></label>
+        <input asp-for="Password" class="form-control" />
+
+    </fieldset>
+
+    <span asp-validation-for="Password"></span>
+    <br />
+    <button class="btn btn-primary" type="submit">Log In</button>
+    <p><a asp-controller="Account" asp-action="Register">Need an account? Click here!</a></p>
+
+</form>
+
+//Login info

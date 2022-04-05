@@ -53,12 +53,33 @@ namespace FishingTournament02.Controllers
             }
             return View(vm);
         }
-        
 
+        public IActionResult Login()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> Login(AccountLoginViewModel vm)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await signInManager.PasswordSignInAsync
+                    (vm.Email, vm.Password, false, false);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
 
-
+                ModelState.AddModelError("", "Login Failure.");
+            }
+            return View(vm);
+        }
     }
 }
+    
+// Login added
+
+
 
 

@@ -1,0 +1,49 @@
+﻿@model FishingTournament02.Models.Events
+<p class="text-info lead">Fill out all fields</p>
+<h2>Add an event</h2>
+<form asp-controller="Admin" asp-action="AddEvent" method="post" class="form-horizontal">
+    <label asp-for="EventName"></label>
+    <input asp-for="EventName" />
+    <br />
+
+    <label asp-for="EventAddress"></label>
+    <input asp-for="EventAddress" />
+    <br />
+
+    <label asp-for="EventCity"></label>
+    <input asp-for="EventCity" />
+    <br />
+
+    <label asp-for="EventState"></label>
+    <input asp-for="EventState" />
+    <br />
+
+    <label asp-for="EventZipCode"></label>
+    <input asp-for="EventZipCode" />
+    <br />
+
+    <label asp-for="EventPhone"></label>
+    <input asp-for="EventPhone" />
+    <br />
+
+    <label asp-for="EventCapacity"></label>
+    <input asp-for="EventCapacity" />
+    <br />
+
+    <label asp-for="EventURL"></label>
+    <input asp-for="EventURL" />
+    <br />
+
+    <label asp-for="EventCost"></label>
+    <input asp-for="EventCost" />
+    <br />
+
+
+
+    <button type="submit">Add Event</button>
+</form>
+<br />
+<p><a asp-controller="Admin" asp-action="Index">Back to Home</a></p>
+
+
+// Event cost added
