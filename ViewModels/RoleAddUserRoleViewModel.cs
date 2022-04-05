@@ -10,6 +10,7 @@ namespace FishingTournament02.ViewModels
     public class RoleAddUserRoleViewModel
     {
         public ApplicationUser User { get; set; }
+
         public string Role { get; set; }
         public SelectList RoleList { get; set; }
     }
