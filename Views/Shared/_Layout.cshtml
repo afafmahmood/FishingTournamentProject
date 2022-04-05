@@ -1,10 +1,31 @@
-﻿<! DOCTYPE html>
+﻿@using System.Security.Claims;
+
+<!DOCTYPE html>
 <html>
 <head>
-    <meta chartset="utf-8" />
-    <title>Fishing Tournament</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADB-US Fishing Tournament</title>
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.4.1/css/bootstrap.min.css" />
 </head>
 <body>
-    @RenderBody()
+    <nav class="bg-info text-right">
+        @if (this.User.Identity.IsAuthenticated)
+        {
+            <p class="navbar-brand">Hello, @this.User.Identity.Name</p>
+            <form method="post" asp-controller="Account" asp-action="Logout">
+                <input type="submit" value="Logout" />
+            </form>
+        }
+    </nav>
+    <div class="container body-content bg-light">
+        @RenderBody()
+        <hr />
+        <footer class="bg-info text-center">
+            <p>&copy; @DateTime.Now.Year - ADB-US Fishung Tournament </p>
+        </footer>
+    </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.4.1/bootstrap.min.js"></script>
 </body>
+
 </html>
