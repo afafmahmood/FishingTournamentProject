@@ -17,3 +17,4 @@ namespace FishingTournament02.Models
 
     }
 }
+
