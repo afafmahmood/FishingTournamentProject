@@ -1,7 +1,7 @@
-﻿model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
     <p><a asp-action="AddRole">Add a role</a></p>
     @{
-        if (Model.Count < 1)
+        if (Model.Count() < 1)
         {
             <p>No role in database yet.</p>
         }
