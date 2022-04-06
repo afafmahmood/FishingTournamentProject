@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FishingTournament02.Models
 {
-    public class Event
+    public class Events
     {
         [Key]
         public int EventID { get; set; }
