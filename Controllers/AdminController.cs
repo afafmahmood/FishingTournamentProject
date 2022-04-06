@@ -113,7 +113,7 @@ namespace FishingTournament02.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> AddEvent(Events Event)
+        public async Task<IActionResult> AddEvent(Event Event)
         {
             db.Add(Event);
             await db.SaveChangesAsync();

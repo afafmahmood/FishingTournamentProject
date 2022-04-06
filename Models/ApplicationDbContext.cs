@@ -10,7 +10,7 @@ namespace FishingTournament02.Models
     //Admin profile
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Events> Events { get; set; }
+        public DbSet<Event> Events { get; set; }
         public DbSet<Profile> Profiles { get; internal set; }
 
         public ApplicationDbContext(DbContextOptions
