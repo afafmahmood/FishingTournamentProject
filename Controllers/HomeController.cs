@@ -10,5 +10,7 @@ namespace FishingTournament02.Controllers
         {
             return View();
         }
+
+        
     }
 }
