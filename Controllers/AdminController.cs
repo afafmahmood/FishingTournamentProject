@@ -140,10 +140,6 @@ namespace FishingTournament02.Controllers
             return RedirectToAction("AllProfile");
         }
 
-        public IActionResult ContactUs()
-        {
-            return View();
-        }
         
     }
 }
