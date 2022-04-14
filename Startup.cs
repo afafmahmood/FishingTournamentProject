@@ -17,11 +17,11 @@ namespace FishingTournament02
         {
 
             var connection =
-                 /* @"Server=fishingtournamentserver.database.windows.net.;Database=fishingdb; User ID=fishingtournamentadmin;Password=Hello123!;
-                     Trusted_Connection=False; Encrypt=True; Trust Server Certificate = true;"; */
+                  @"Server=fishingtournament02.database.windows.net.;Database=fishingdb; User ID=admin01;Password=Hello123!;
+                     Trusted_Connection=False; Encrypt=True; Trust Server Certificate = true;"; 
 
-                 @"Server=(localdb)\mssqllocaldb; Database=FishingDb01;
-                    Trusted_Connection=True;";
+               /*  @"Server=(localdb)\mssqllocaldb; Database=FishingDb01;
+                    Trusted_Connection=True;";*/
             services.AddDbContext<ApplicationDbContext>
                 (options => options.UseSqlServer(connection));
             services.AddIdentity<ApplicationUser, IdentityRole>()
