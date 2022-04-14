@@ -139,11 +139,6 @@ namespace FishingTournament02.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("AllProfile");
         }
-
-        public IActionResult ContactUs()
-        {
-            return View();
-        }
         
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace ContactUsForm.Models
+﻿namespace ContactUs.Models
 {
     public class ContactFormModel
     {
