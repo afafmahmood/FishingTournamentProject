@@ -7,6 +7,7 @@ namespace FishingTournament02.Models
 {
     public class EventRegister
     {
+        [Key]
         public int RegisterId { get; set; }
 
         public DateTime RegisterDate { get; set; }

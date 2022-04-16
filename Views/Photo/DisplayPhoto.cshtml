@@ -1,0 +1,11 @@
+﻿@model IEnumerable<FishingTournament02.Models.Photo>
+@{
+    ViewData["Title"] = "Display Photo";
+}
+<h3>All Photos</h3>
+@foreach (var p in Model)
+{
+    <img src="~/images/photos/@p.Url" alt="@p.AltAttribute"
+         width="300" class="img-responsive img-circle" />
+    <p class="text-info">@p.Description</p>
+}
