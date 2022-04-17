@@ -1,43 +1,53 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using FishingTournament02.Models;
 using System.IO;
-using System.Threading.Tasks;
-using System.Linq.Expressions;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
+
 
 namespace FishingTournament02.Controllers
 {
     public class PhotoController : Controller
     {
-        private readonly ApplicationDbContext db;
-        public PhotoController(ApplicationDbContext db)
+        private readonly IHostingEnvironment Environment;
+        public PhotoController(IHostingEnvironment _environment)
         {
-            this.db = db;
+            Environment = _environment;
         }
         public IActionResult Index()
         {
             return View();
         }
-        public IActionResult AddPhoto()
-        {
-            return View();
 
-        }
         [HttpPost]
-        public async Task<IActionResult> AddPhoto(Photo p)
+        public IActionResult Index(List<IFormFile> postedFiles)
         {
-            var path = Path.Combine(
-                Directory.GetCurrentDirectory(), "wwwroot\\" +
-                "images", p.MyPhoto.FileName);
+            string wwwPath = this.Environment.WebRootPath;
+            string contentPath = this.Environment.ContentRootPath;
 
-            using (var stream = new FileStream(path, FileMode.Create))
+            string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
+            if (!Directory.Exists(path))
             {
-                await p.MyPhoto.CopyToAsync(stream);
             }
-            p.Url = p.MyPhoto.FileName;
-            db.Add(p);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            else
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            List<string> uploadedFiles = new List<string>();
+            foreach (IFormFile postedFile in postedFiles)
+            {
+                string fileName = Path.GetFileName(postedFile.FileName);
+                using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                    uploadedFiles.Add(fileName);
+                    ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
+                }
+            }
+
+            return View();
         }
     }
 }
