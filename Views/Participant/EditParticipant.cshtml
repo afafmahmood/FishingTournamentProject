@@ -1,0 +1,22 @@
+﻿@model FishingTournament02.Models.Participant
+
+<h3>Edit the Participant</h3>
+<form asp-controller="Participant" asp-action="EditParticipant"
+      method="post">
+
+    <input asp-for="ParticipantId" type="hidden" />
+    <label asp-for="ParticipantName"></label>
+    <input asp-for="ParticipantName" />
+    <br />
+
+    <label asp-for="ParticipantPhone"></label>
+    <input asp-for="ParticipantPhone" />
+    <br />
+
+    <label asp-for="ParticipantEvent"></label>
+    <input asp-for="ParticipantEvent" />
+    <br />
+
+    <button type="submit">Update Participant</button>
+
+</form>

@@ -1,0 +1,23 @@
+﻿@model FishingTournament02.Models.Participant
+
+<form asp-controller="Participant" asp-action="AddParticipant"
+      method="post">
+
+    <label asp-for="ParticipantId"></label>
+    <input asp-for="ParticipantId" />
+    <br />
+
+    <label asp-for="ParticipantName"></label>
+    <input asp-for="ParticipantName" />
+    <br />
+
+    <label asp-for="ParticipantPhone"></label>
+    <input asp-for="ParticipantPhone" />
+    <br />
+
+    <label asp-for="ParticipantEvent"></label>
+    <input asp-for="ParticipantEvent" />
+    <br />
+
+    <button type="submit">Add Participant</button>
+</form>

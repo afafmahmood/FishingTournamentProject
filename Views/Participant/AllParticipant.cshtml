@@ -1,0 +1,42 @@
+﻿@model IEnumerable<FishingTournament02.Models.Participant>
+
+<p><a asp-controller="Participant" asp-action="AddParticipant">
+    Add a participant</a></p>
+@{ 
+    if (Model.Count() <1)
+            {
+                <p>No participant in database yet.</p>
+    }
+    else
+            {
+                <h3>All Participants</h3>
+                <table border="1">
+
+                    <tr>
+                        <th>Participant ID</th>
+                        <th>Participant Name</th>
+                        <th>Participant Phone</th>
+                        <th>Participant Event</th>
+
+                        <th>Edit</th>
+                        <th>Delete</th>
+
+                    </tr>
+
+                    @{ 
+                        foreach (var participant in Model)
+                {
+                    <tr>
+                        <td>@participant.ParticipantId</td>
+                        <td>@participant.ParticipantName</td>
+                        <td>@participant.ParticipantPhone</td>
+                        <td>@participant.ParticipantEvent</td>
+
+                        <td><a asp-action="EditParticipant" asp-route-id="@participant.ParticipantId">Edit</a></td>
+                        <td><a asp-action="DeleteParticipant" asp-route-id="@participant.ParticipantId">Delete</a></td>
+                    </tr>
+                }
+                    }
+                </table>
+            }
+}
