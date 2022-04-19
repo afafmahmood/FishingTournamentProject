@@ -46,5 +46,10 @@ namespace FishingTournament02.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("ContactUs");
         }
+
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
     }
 }
