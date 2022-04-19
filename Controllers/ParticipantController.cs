@@ -40,5 +40,28 @@ namespace FishingTournament02.Controllers
             participant = db.Participants.Find(id);
             return View(participant);
         }
+
+        [HttpPost]
+        public IActionResult EditParticipant(Participant participant)
+        {
+            db.Update(participant);
+            db.SaveChanges();
+            return RedirectToAction("AllParticipant");
+        }
+
+        public IActionResult DeleteParticipant(int id)
+        {
+            Participant participant;
+            participant = db.Participants.Find(id);
+            return View(participant);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteParticipant(Participant participant)
+        {
+            db.Remove(participant);
+            db.SaveChanges();
+            return RedirectToAction("AllParticipant");
+        }
     }
 }

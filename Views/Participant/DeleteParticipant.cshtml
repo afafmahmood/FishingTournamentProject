@@ -1,0 +1,31 @@
+﻿@model FishingTournament02.Models.Participant
+
+<h3>Delete the participant</h3>
+<p>Are you sure you want to delete this participant?</p>
+
+<form asp-controller="Participant" asp-action="DeleteParticipant"
+      method="post">
+
+    <label asp-for="ParticipantId"></label>
+    <input asp-for="ParticipantId" readonly="readonly" />
+    <br />
+
+    <label asp-for="ParticipantName"></label>
+    <input asp-for="ParticipantName" readonly="readonly" />
+    <br />
+
+
+    <label asp-for="ParticipantPhone"></label>
+    <input asp-for="ParticipantPhone" readonly="readonly" />
+    <br />
+
+
+    <label asp-for="ParticipantEvent"></label>
+    <input asp-for="ParticipantEvent" readonly="readonly" />
+    <br />
+
+    <button type="submit">Yes Delete</button>
+</form>
+
+<p><a asp-controller="Participant" asp-action="AllParticipant">
+    No, Back to list</a></p>
