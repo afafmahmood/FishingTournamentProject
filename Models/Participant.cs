@@ -8,8 +8,8 @@ namespace FishingTournament02.Models
     public class Participant
     {
         public int ParticipantId { get; set; }
-        public int ParticipantName { get; set; }
-        public int ParticipantPhone { get; set; }
-        public int ParticipantEvent { get; set; }
+        public string ParticipantName { get; set; }
+        public string ParticipantPhone { get; set; }
+        public string ParticipantEvent { get; set; }
     }
 }

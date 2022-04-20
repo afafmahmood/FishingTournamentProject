@@ -19,6 +19,7 @@ namespace FishingTournament02.Models
         public int EventCapacity { get; set; }
         public string EventURL { get; set; }
         public string EventCost { get; set; }
+        public ICollection<EventRegister> EventRegisters { get; set; }
     }
 }
 

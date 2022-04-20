@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<FishingTournament02.Models.Events>
 
-
-<p><a asp-controller="Admin" asp-action="AddEvent">Add an event</a></p>
+<!--<p><a asp-controller="Admin" asp-action="AddEvent">Add an event</a></p>-->
 
 
 @{
@@ -25,22 +24,24 @@
                     <th>Event Capacity</th>
                     <th>Event URL</th>
                     <th>Event Cost</th>
-
+                    <th>Join</th>
                 </tr>
                 @foreach (var events in Model)
                 {
-            <tr>
-                <td>@events.EventName</td>
-                <td>@events.EventAddress</td>
-                <td>@events.EventCity</td>
-                <td>@events.EventState</td>
-                <td>@events.EventZipCode</td>
-                <td>@events.EventPhone</td>
-                <td>@events.EventCapacity</td>
-                <td><a href="http://@events.EventURL">@events.EventURL</a></td>
-                <td>@events.EventCost</td>
+                    <tr>
+                        <td>@events.EventName</td>
+                        <td>@events.EventAddress</td>
+                        <td>@events.EventCity</td>
+                        <td>@events.EventState</td>
+                        <td>@events.EventZipCode</td>
+                        <td>@events.EventPhone</td>
+                        <td>@events.EventCapacity</td>
+                        <td><a href="http://@events.EventURL">@events.EventURL</a></td>
+                        <td>@events.EventCost</td>
+                        <td><a asp-action="EventRegister"
+                            asp-route-id="@events.EventID">Register</a></td>
 
-            </tr>
+                    </tr>
                 }
             </table>
         </div>

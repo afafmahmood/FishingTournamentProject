@@ -6,8 +6,13 @@ namespace FishingTournament02.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Events> Events { get; set; }
+
+        public DbSet<RegisterDetail> RegisterDetails { get; set; }
+        public DbSet<EventRegister> EventRegisters { get; set; }
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Participant> Participants { get; set; }
+        public DbSet<ContactUs> ContactUs { get; set; }
+        
 
         public ApplicationDbContext(DbContextOptions
             <ApplicationDbContext> options)

@@ -1,0 +1,39 @@
+﻿@model FishingTournament02.Models.Events
+<p class="text-info lead">Fill out all fields</p>
+<h2>Register for the Event</h2>
+<form asp-controller="EventRegister" asp-action="Register" method="post" class="form-horizontal">
+
+    <label asp-for="Email"></label>
+    <input asp-for="Email" />
+    <br />
+    <label asp-for="FirstName"></label>
+    <input asp-for="FirstName" />
+    <br />
+    <label asp-for="LastName"></label>
+    <input asp-for="LastName" />
+    <br />
+    <label asp-for="Address"></label>
+    <input asp-for="Address" />
+    <br />
+    <label asp-for="City"></label>
+    <input asp-for="City" />
+    <br />
+    <label asp-for="State"></label>
+    <input asp-for="State" />
+    <br />
+    <label asp-for="PostalCode"></label>
+    <input asp-for="PostalCode" />
+    <br />
+    <label asp-for="Phone"></label>
+    <input asp-for="Phone" />
+    <br />
+    <label asp-for="GuestFirstName"></label>
+    <input asp-for="GuestFirstName" />
+    <br />
+    <label asp-for="GuestLastName"></label>
+    <input asp-for="GuestLastName" />
+    <br />
+    <input asp-for="@Model.EventID" type="hidden" />
+
+    <button type="submit">Register and Pay</button>
+</form>
