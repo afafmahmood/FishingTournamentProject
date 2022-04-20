@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FishingTournament02.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220412235225_M5")]
-    partial class M5
+    [Migration("20220420020336_m1")]
+    partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
