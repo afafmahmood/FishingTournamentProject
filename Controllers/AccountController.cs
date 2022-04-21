@@ -32,7 +32,7 @@ namespace FishingTournament02.Controllers
         
         [HttpPost]
 
-        public async Task<IActionResult> Register(AccountRegister vm)
+        public async Task<IActionResult> Register(AccountRegisterViewModel vm)
         {
             if (ModelState.IsValid)
             {

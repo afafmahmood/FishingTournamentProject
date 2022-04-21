@@ -2,7 +2,7 @@
 
 namespace FishingTournament02.ViewModels
 {
-    public class AccountRegister
+    public class AccountRegisterViewModel
     {
         [Required, MaxLength(256), EmailAddress]
         [Display(Name ="Email Address")]

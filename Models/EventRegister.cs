@@ -2,7 +2,6 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.ComponentModel;
-using FishingTournament02.Models;
 
 namespace FishingTournament02.Models
 {
@@ -11,7 +10,7 @@ namespace FishingTournament02.Models
         [Key]
         public int RegisterId { get; set; }
 
-        public DateTime RegisterDate { get; set; } = DateTime.Now;
+        public DateTime RegisterDate { get; set; }
 
         public string Email { get; set; }
 
@@ -55,6 +54,11 @@ namespace FishingTournament02.Models
         [StringLength(160)]
         public string GuestLastName { get; set; }
 
+        [ScaffoldColumn(false)]
+        public decimal Total { get; set; }
+
+        [ScaffoldColumn(false)]
+        public string PaymentTransactionId { get; set; }
         public Events Event { get; set; }
     }
 }
