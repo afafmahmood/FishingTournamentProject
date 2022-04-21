@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FishingTournament02.ViewModels
+namespace FishingTournament02.Models
 {
     public class AccountRegister
     {

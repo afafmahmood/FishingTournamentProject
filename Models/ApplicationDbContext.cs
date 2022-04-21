@@ -7,7 +7,7 @@ namespace FishingTournament02.Models
     {
         public DbSet<Events> Events { get; set; }
 
-        public DbSet<RegisterDetail> RegisterDetails { get; set; }
+       // public DbSet<RegisterDetail> RegisterDetails { get; set; }
         public DbSet<EventRegister> EventRegisters { get; set; }
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Participant> Participants { get; set; }

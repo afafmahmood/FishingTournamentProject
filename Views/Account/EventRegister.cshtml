@@ -1,4 +1,4 @@
-﻿@model FishingTournament02.Models.Events
+﻿@model FishingTournament02.Models.EventRegister
 <p class="text-info lead">Fill out all fields</p>
 <h2>Register for the Event</h2>
 <form asp-controller="EventRegister" asp-action="Register" method="post" class="form-horizontal">
@@ -6,7 +6,7 @@
     <label asp-for="Email"></label>
     <input asp-for="Email" />
     <br />
-    <label asp-for="FirstName"></label>
+    <label asp-for="FirstName"></label>s
     <input asp-for="FirstName" />
     <br />
     <label asp-for="LastName"></label>
@@ -33,7 +33,7 @@
     <label asp-for="GuestLastName"></label>
     <input asp-for="GuestLastName" />
     <br />
-    <input asp-for="@Model.EventID" type="hidden" />
+    @*<input asp-for="@Model.EventID" type="hidden" />*@ 
 
     <button type="submit">Register and Pay</button>
 </form>
