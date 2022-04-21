@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FishingTournament02.Migrations
 {
-    public partial class initialcreatin : Migration
+    public partial class m1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,6 +44,58 @@ namespace FishingTournament02.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Events",
+                columns: table => new
+                {
+                    EventID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EventName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EventAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EventCity = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EventState = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EventZipCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EventPhone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EventCapacity = table.Column<int>(type: "int", nullable: false),
+                    EventURL = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EventCost = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Events", x => x.EventID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Participants",
+                columns: table => new
+                {
+                    ParticipantId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ParticipantName = table.Column<int>(type: "int", nullable: false),
+                    ParticipantPhone = table.Column<int>(type: "int", nullable: false),
+                    ParticipantEvent = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Participants", x => x.ParticipantId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Profiles",
+                columns: table => new
+                {
+                    ProfileId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Telephone = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Profiles", x => x.ProfileId);
                 });
 
             migrationBuilder.CreateTable(
@@ -208,6 +260,15 @@ namespace FishingTournament02.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Events");
+
+            migrationBuilder.DropTable(
+                name: "Participants");
+
+            migrationBuilder.DropTable(
+                name: "Profiles");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
