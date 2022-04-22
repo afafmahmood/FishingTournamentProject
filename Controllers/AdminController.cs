@@ -53,7 +53,7 @@ namespace FishingTournament02.Controllers
                 Id = x.Id,
                 Value = x.Name
             }).ToList();
-            AdminAddUserRoleViewModel vm = new AdminAddUserRoleViewModel();
+            RoleAddUserRoleViewModel vm = new RoleAddUserRoleViewModel();
             var user = await userManager.FindByIdAsync(id);
             vm.User = user;
             vm.RoleList = new SelectList(roleDisplay, "Id", "Value");

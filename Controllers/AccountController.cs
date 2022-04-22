@@ -2,6 +2,7 @@
 using FishingTournament02.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace FishingTournament02.Controllers
@@ -74,6 +75,11 @@ namespace FishingTournament02.Controllers
                 ModelState.AddModelError("", "Login Failure.");
             }
             return View(vm);
+        }
+        public IActionResult AllUser()
+        {
+            var users = db.Users.ToList();
+            return View(users);
         }
     }
 }
