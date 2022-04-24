@@ -17,7 +17,7 @@ namespace FishingTournament02
         {
 
             var connection =
-                  @"Server=fishingtournament02.database.windows.net.;Database=fishingdb02; User ID=admin01;Password=Hello123!;
+                  @"Server=sergeant.database.windows.net,1433.;Database=fishingdb02; User ID=admin01;Password=Hello123!;
                      Trusted_Connection=False; Encrypt=True; Trust Server Certificate = true;"; 
 
                /*  @"Server=(localdb)\mssqllocaldb; Database=FishingDb01;
