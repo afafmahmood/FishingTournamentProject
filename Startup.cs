@@ -16,12 +16,10 @@ namespace FishingTournament02
         public void ConfigureServices(IServiceCollection services)
         {
 
-            var connection =
-                  @"Server=sergeant.database.windows.net,1433.;Database=fishingdb02; User ID=admin01;Password=Hello123!;
-                     Trusted_Connection=False; Encrypt=True; Trust Server Certificate = true;"; 
+            var connection = 
 
-               /*  @"Server=(localdb)\mssqllocaldb; Database=FishingDb01;
-                    Trusted_Connection=True;";*/
+                 @"Server=(localdb)\mssqllocaldb; Database=FishingDb01;
+                    Trusted_Connection=True;";
             services.AddDbContext<ApplicationDbContext>
                 (options => options.UseSqlServer(connection));
             services.AddIdentity<ApplicationUser, IdentityRole>()

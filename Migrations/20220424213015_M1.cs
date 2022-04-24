@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FishingTournament02.Migrations
 {
-    public partial class m1 : Migration
+    public partial class M1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -47,6 +47,21 @@ namespace FishingTournament02.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ContactUs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Message = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ContactUs", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Events",
                 columns: table => new
                 {
@@ -73,9 +88,9 @@ namespace FishingTournament02.Migrations
                 {
                     ParticipantId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ParticipantName = table.Column<int>(type: "int", nullable: false),
-                    ParticipantPhone = table.Column<int>(type: "int", nullable: false),
-                    ParticipantEvent = table.Column<int>(type: "int", nullable: false)
+                    ParticipantName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ParticipantPhone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ParticipantEvent = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -204,6 +219,36 @@ namespace FishingTournament02.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "EventRegister",
+                columns: table => new
+                {
+                    RegisterId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RegisterDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(160)", maxLength: 160, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(160)", maxLength: 160, nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
+                    City = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
+                    State = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
+                    PostalCode = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    Phone = table.Column<string>(type: "nvarchar(24)", maxLength: 24, nullable: true),
+                    GuestFirstName = table.Column<string>(type: "nvarchar(160)", maxLength: 160, nullable: false),
+                    GuestLastName = table.Column<string>(type: "nvarchar(160)", maxLength: 160, nullable: false),
+                    EventID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EventRegister", x => x.RegisterId);
+                    table.ForeignKey(
+                        name: "FK_EventRegister_Events_EventID",
+                        column: x => x.EventID,
+                        principalTable: "Events",
+                        principalColumn: "EventID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -242,6 +287,11 @@ namespace FishingTournament02.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EventRegister_EventID",
+                table: "EventRegister",
+                column: "EventID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -262,7 +312,10 @@ namespace FishingTournament02.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Events");
+                name: "ContactUs");
+
+            migrationBuilder.DropTable(
+                name: "EventRegister");
 
             migrationBuilder.DropTable(
                 name: "Participants");
@@ -275,6 +328,9 @@ namespace FishingTournament02.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Events");
         }
     }
 }

@@ -148,9 +148,6 @@ namespace FishingTournament02.Migrations
                         .HasMaxLength(160)
                         .HasColumnType("nvarchar(160)");
 
-                    b.Property<string>("PaymentTransactionId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Phone")
                         .HasMaxLength(24)
                         .HasColumnType("nvarchar(24)");
@@ -167,9 +164,6 @@ namespace FishingTournament02.Migrations
                         .IsRequired()
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
-
-                    b.Property<decimal>("Total")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("RegisterId");
 
@@ -224,14 +218,14 @@ namespace FishingTournament02.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("ParticipantEvent")
-                        .HasColumnType("int");
+                    b.Property<string>("ParticipantEvent")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ParticipantName")
-                        .HasColumnType("int");
+                    b.Property<string>("ParticipantName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ParticipantPhone")
-                        .HasColumnType("int");
+                    b.Property<string>("ParticipantPhone")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ParticipantId");
 
