@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FishingTournament02.ViewModels
 {
-    public class AdminAddUserRoleViewModel
+    public class RoleAddUserRoleViewModel
     {
         public ApplicationUser User { get; set; }
         public string Role { get; set; }
