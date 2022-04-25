@@ -65,18 +65,22 @@ namespace FishingTournament02.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await signInManager.PasswordSignInAsync
-                    (vm.Email, vm.Password, false, false);
-                if (result.Succeeded)
+                var user = await userManager.FindByEmailAsync(vm.Email);
+                var roles = await userManager.GetRolesAsync(user);
+                if (roles.Contains("Admin"))
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
+
+                else
                 {
                     return RedirectToAction("Index", "Home");
                 }
-
-                ModelState.AddModelError("", "Login Failure.");
             }
             return View(vm);
         }
-        public IActionResult AllUser()
+    [HttpPost]
+        public  IActionResult AllUser()
         {
             var users = db.Users.ToList();
             return View(users);
