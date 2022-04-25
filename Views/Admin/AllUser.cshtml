@@ -7,9 +7,8 @@
     }
     else
     {
-        <h3>All Users</h3>
-        <div class="table-responsive">
-            <table class="table table-striped table-hover">
+        <h3>All User</h3>
+        <table border="1">
                 <tr>
                     <th>User Name</th>
                     <th>Add Role</th>
@@ -19,7 +18,7 @@
                     <tr>
                         <td>@user.UserName</td>
                         <td>
-                            <a asp-controller="Admin"
+                            <a asp-controller="Role"
                                asp-action="AddUserRole"
                                asp-route-id="@user.Id">
                                 Add a role
@@ -28,7 +27,6 @@
                     </tr>
                 }
             </table>
-        </div>
         <p><a asp-controller="Admin" asp-action="Index">Back to Administration Home</a></p>
     }
 }
