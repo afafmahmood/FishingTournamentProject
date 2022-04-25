@@ -1,7 +1,10 @@
 ﻿@model FishingTournament02.Models.Participant
 
-<form asp-controller="Admin" asp-action="AddParticipant"
-      method="post">
+<p class="text-info lead">Fill out all fields</p>
+
+<h2>Add a participant</h2>
+
+<form asp-controller="Admin" asp-action="AddParticipant" method="post" class="form-horizontal">
 
     <label asp-for="ParticipantId"></label>
     <input asp-for="ParticipantId" />
@@ -21,3 +24,4 @@
 
     <button type="submit">Add Participant</button>
 </form>
+<p><a asp-controller="Admin" asp-action="Index">Back to Home</a></p>

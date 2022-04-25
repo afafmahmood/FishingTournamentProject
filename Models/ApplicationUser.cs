@@ -9,7 +9,5 @@ namespace FishingTournament02.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long IDUser { get; set; }
     }
 }
