@@ -4,7 +4,10 @@
 <form asp-controller="Admin" asp-action="EditParticipant"
       method="post">
 
-    <input asp-for="ParticipantId" type="hidden" />
+    <label asp-for="ParticipantId"></label>
+    <input asp-for="ParticipantId" />
+    <br/>
+
     <label asp-for="ParticipantName"></label>
     <input asp-for="ParticipantName" />
     <br />
