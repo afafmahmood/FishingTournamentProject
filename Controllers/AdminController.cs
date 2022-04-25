@@ -139,7 +139,56 @@ namespace FishingTournament02.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("AllProfile");
         }
-        
+
+
+        public IActionResult AllParticipant()
+        {
+            return View(db.Participants);
+        }
+
+        //GET: /<controller>/
+        public IActionResult AddParticipant()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddParticipant(Participant participant)
+        {
+            db.Add(participant);
+            db.SaveChanges();
+            return RedirectToAction("AllParticipant");
+        }
+
+        public IActionResult EditParticipant(int id)
+        {
+            Participant participant;
+            participant = db.Participants.Find(id);
+            return View(participant);
+        }
+
+        [HttpPost]
+        public IActionResult EditParticipant(Participant participant)
+        {
+            db.Update(participant);
+            db.SaveChanges();
+            return RedirectToAction("AllParticipant");
+        }
+
+        public IActionResult DeleteParticipant(int id)
+        {
+            Participant participant;
+            participant = db.Participants.Find(id);
+            return View(participant);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteParticipant(Participant participant)
+        {
+            db.Remove(participant);
+            db.SaveChanges();
+            return RedirectToAction("AllParticipant");
+        }
     }
 }
 
