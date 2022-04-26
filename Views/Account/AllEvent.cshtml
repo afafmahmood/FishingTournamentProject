@@ -1,7 +1,5 @@
 ﻿@model IEnumerable<FishingTournament02.Models.Events>
 
-<!--<p><a asp-controller="Admin" asp-action="AddEvent">Add an event</a></p>-->
-
 
 @{
     if (Model.Count() < 1)
@@ -24,7 +22,7 @@
                     <th>Event Capacity</th>
                     <th>Event URL</th>
                     <th>Event Cost</th>
-                    <th>Join</th>
+                    <th>Register</th>
                 </tr>
                 @foreach (var events in Model)
                 {
@@ -38,7 +36,7 @@
                         <td>@events.EventCapacity</td>
                         <td><a href="http://@events.EventURL">@events.EventURL</a></td>
                         <td>@events.EventCost</td>
-                        <td><a asp-action="EventRegister"
+                        <td><a asp-controller ="Account" asp-action="EventRegister"
                             asp-route-id="@events.EventID">Register</a></td>
 
                     </tr>

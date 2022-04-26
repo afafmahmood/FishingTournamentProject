@@ -1,29 +1,69 @@
-﻿@model IEnumerable<FishingTournament02.Models.EventRegister>
+﻿@model FishingTournament02.Models.EventRegister
 
-
+<p>Enter your information to register for the event</p>
+<h3>Event Information</h3>
+<table border="1">
+    <tr>
+        <th>Event ID</th>
+        <th>Event Name</th>
+        <th>Event Cost</th>
+    </tr>
+    <tr>
+        <td>@ViewBag.Event.EventID</td>
+        <td>@ViewBag.Event.EventName</td>
+        <td>@ViewBag.Event.EventCost</td>
+    </tr>
+</table>
 @{
-        <h3>Event Registration</h3>
-        <div class="table-responsive">
-            <table border="1" class="table table-striped table-hover">
+    <form asp-controller="Account" asp-action="EventRegister" method="post">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        <br />
 
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                @foreach (var events in Model)
-                {
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-                }
-            </table>
-        </div>
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" />
+        <br />
 
-    }
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" />
+        <br />
+
+        <label asp-for="Address"></label>
+        <input asp-for="Address" />
+        <br />
+
+        <label asp-for="City"></label>
+        <input asp-for="City" />
+        <br />
+
+        <label asp-for="State"></label>
+        <input asp-for="State" />
+        <br />
+
+        <label asp-for="ZIP"></label>
+        <input asp-for="ZIP" />
+        <br />
+
+        <label asp-for="Phone"></label>
+        <input asp-for="Phone" />
+        <br />
+
+        <label asp-for="GuestFirstName"></label>
+        <input asp-for="GuestFirstName" />
+        <br />
+
+        <label asp-for="GuestLastName"></label>
+        <input asp-for="GuestLastName" />
+        <br />
+
+        <input asp-for="EventID" type="hidden"
+            value=@ViewBag.Event.EventID />
+
+        <button type="submit">Submit Registration</button>
+
+    </form>
+
+
+
 }
 

@@ -2,6 +2,7 @@
 using FishingTournament02.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,6 +14,7 @@ namespace FishingTournament02.Controllers
         private UserManager<ApplicationUser> userManager;
         private SignInManager<ApplicationUser> signInManager;
         private RoleManager<IdentityRole> roleManager;
+        
 
         public AccountController(UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
@@ -85,6 +87,37 @@ namespace FishingTournament02.Controllers
             var users = db.Users.ToList();
             return View(users);
         }
+
+        public IActionResult AllEvent()
+        {
+            var events = db.Events.ToList();
+            return View(events);
+        }
+
+        public async Task<IActionResult> EventRegister(int? id)
+        {
+            var events = await db.Events.SingleOrDefaultAsync(e => e.EventID == id);
+            ViewBag.Event = events;
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EventRegister(EventRegister eventRegister)
+        {
+            db.Add(eventRegister);
+            var events = await db.Events.FindAsync(eventRegister.EventID);
+            events.EventCapacity++;
+            await db.SaveChangesAsync();
+            return RedirectToAction("Confirmation", "Account");
+        }
+
+
+        public IActionResult Confirmation()
+        {
+            return View();
+        }
+
+
     }
 }
     

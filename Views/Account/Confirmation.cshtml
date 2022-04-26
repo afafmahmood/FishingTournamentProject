@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ADB Fishing Tournament</title>
+</head>
+<body>
+    <header>
+    </header>
+    <div>
+
+        <h3 id="myAlign">Registeration Confirmation</h3>
+        <br>
+        <p>Thank you for registering for this years event! See the payment options below</p>
+        <p>
+            @*To change the target link, replace www.ccis.edu with the new payment link. 
+                Leave the http:// as the beginning to link to an external site*@
+
+            <a href="https://www.ccis.edu" target="_blank">
+                <img src="~/images/payment/paynow.jpg" alt="Pay Now Link" style="width:210px;height:210px;">
+            </a>
+
+            @*To change the QR Code, save the picture as qrcode.png in the wwwroot/images/payment/ folder*@
+            <a>
+                <img src="~/images/payment/qrcode.png" alt="Pay Now QR Code" style="width:210px;height:210px;">
+            </a>
+        </p> 
+        <p><a asp-controller="Account" asp-action="AllEvent">Return to Events (I'll pay in person)</a></p>
+    </div>
+    <footer>
+        <p>COPYRIGHT &Copy; 2022 ADB Companies</p>
+    </footer>
+
+</body>
+</html>
