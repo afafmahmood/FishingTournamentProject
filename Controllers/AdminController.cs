@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,6 +56,7 @@ namespace FishingTournament02.Controllers
             }).ToList();
             RoleAddUserRoleViewModel vm = new RoleAddUserRoleViewModel();
             var user = await userManager.FindByIdAsync(id);
+            var roles = await userManager.GetRolesAsync(user);
             vm.User = user;
             vm.RoleList = new SelectList(roleDisplay, "Id", "Value");
             return View(vm);
@@ -143,49 +145,59 @@ namespace FishingTournament02.Controllers
 
         public IActionResult AllParticipant()
         {
-            return View(db.Participants);
+            return View(db.EventRegisters);
         }
 
-        //GET: /<controller>/
-        public IActionResult AddParticipant()
+        // GET: /<controller>/
+        public async Task<IActionResult> AddParticipant(int? id)
         {
+            var events = await db.Events.SingleOrDefaultAsync(e => e.EventID == id);
+            ViewBag.Event = events;
             return View();
         }
 
         [HttpPost]
-        public IActionResult AddParticipant(Participant participant)
+        public async Task <IActionResult> AddParticipant(EventRegister eventRegister)
         {
-            db.Add(participant);
-            db.SaveChanges();
+            db.Add(eventRegister);
+            var events = await db.Events.FindAsync(eventRegister.EventID);
+            events.EventCapacity--;
+            await db.SaveChangesAsync();
             return RedirectToAction("AllParticipant");
         }
 
+
+
+
         public IActionResult EditParticipant(int id)
         {
-            Participant participant;
-            participant = db.Participants.Find(id);
-            return View(participant);
+            EventRegister eventRegister;
+            eventRegister = db.EventRegisters.Find(id);
+            return View(eventRegister);
         }
 
         [HttpPost]
-        public IActionResult EditParticipant(Participant participant)
+        public async Task <IActionResult> EditParticipant(EventRegister eventRegister)
         {
-            db.Update(participant);
-            db.SaveChanges();
+            db.Update(eventRegister);
+            await db.SaveChangesAsync();
+            //db.SaveChanges();
             return RedirectToAction("AllParticipant");
         }
 
         public IActionResult DeleteParticipant(int id)
         {
-            Participant participant;
-            participant = db.Participants.Find(id);
-            return View(participant);
+            EventRegister eventRegister;
+            eventRegister = db.EventRegisters.Find(id);
+            return View(eventRegister);
         }
 
         [HttpPost]
-        public IActionResult DeleteParticipant(Participant participant)
+        public async Task<IActionResult> DeleteParticipantAsync(EventRegister eventRegister)
         {
-            db.Remove(participant);
+            db.Remove(eventRegister);
+            var events = await db.Events.FindAsync(eventRegister.EventID);
+            events.EventCapacity++;
             db.SaveChanges();
             return RedirectToAction("AllParticipant");
         }

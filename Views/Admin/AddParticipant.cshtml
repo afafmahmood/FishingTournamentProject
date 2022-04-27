@@ -1,27 +1,60 @@
-﻿@model FishingTournament02.Models.Participant
+﻿@model FishingTournament02.Models.EventRegister
 
-<p class="text-info lead">Fill out all fields</p>
+<p>Enter the information to register a person for the event</p>
+<h3>Event Information</h3>
+<table border="1">
+    <tr>
+        <th>Event ID</th>
+        <th>Event Name</th>
+        <th>Event Cost</th>
+    </tr>
+    <tr>
+        <td>@ViewBag.Event.EventID</td>
+        <td>@ViewBag.Event.EventName</td>
+        <td>@ViewBag.Event.EventCost</td>
+    </tr>
+</table>
+<br>
+@{
+    if (ViewBag.Event.EventCapacity > 34)
+    {
+        <p>Sorry this event is at full capacity.</p>
+        <p><a asp-controller="Admin" asp-action="AllEvent">Back to event list</a></p>
+    }
+    else
+    {
+        <form asp-controller="Admin" asp-action="AddParticipant" method="post">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" />
+            <br />
 
-<h2>Add a participant</h2>
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" />
+            <br />
 
-<form asp-controller="Admin" asp-action="AddParticipant" method="post" class="form-horizontal">
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" />
+            <br />
 
-    <label asp-for="ParticipantId"></label>
-    <input asp-for="ParticipantId" />
-    <br />
+            <label asp-for="Phone"></label>
+            <input asp-for="Phone" />
+            <br />
 
-    <label asp-for="ParticipantName"></label>
-    <input asp-for="ParticipantName" />
-    <br />
+            <label asp-for="GuestFirstName"></label>
+            <input asp-for="GuestFirstName" />
+            <br />
 
-    <label asp-for="ParticipantPhone"></label>
-    <input asp-for="ParticipantPhone" />
-    <br />
+            <label asp-for="GuestLastName"></label>
+            <input asp-for="GuestLastName" />
+            <br />
 
-    <label asp-for="ParticipantEvent"></label>
-    <input asp-for="ParticipantEvent" />
-    <br />
+            <input asp-for="EventID" type="hidden"
+                   value=@ViewBag.Event.EventID />
 
-    <button type="submit">Add Participant</button>
-</form>
-<p><a asp-controller="Admin" asp-action="Index">Back to Home</a></p>
+            <button type="submit">Add Participant</button>
+
+        </form>
+    }
+}
+
+<p><a asp-controller="Admin" asp-action="AllEvent">Back to Events</a></p>

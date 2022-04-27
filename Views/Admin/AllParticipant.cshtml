@@ -1,42 +1,51 @@
-﻿@model IEnumerable<FishingTournament02.Models.Participant>
+﻿@model IEnumerable<FishingTournament02.Models.EventRegister>
 
-<p><a asp-controller="Admin" asp-action="AddParticipant">
-    Add a participant</a></p>
-@{ 
-    if (Model.Count() <1)
-            {
-                <p>No participant in database yet.</p>
+<p>
+    @*I can't get this link to work -Brenton
+        <a asp-controller="Admin" asp-action="AddParticipant">Add a participant</a>
+    *@
+
+</p>
+@{
+    if (Model.Count() < 1)
+    {
+        <p>No participants in database yet.</p>
     }
     else
-            {
-                <h3>All Participant</h3>
-                <table border="1">
+    {
+        <h3>All Participant</h3>
+        <table border="1">
 
-                    <tr>
-                        <th>Participant ID</th>
-                        <th>Participant Name</th>
-                        <th>Participant Phone</th>
-                        <th>Participant Event</th>
+            <tr>
+                <th>Participant ID</th>
+                <th>Participant First Name</th>
+                <th>Participant Last Name</th>
+                <th>Participant Phone</th>
+                <th>Guest First Name</th>
+                <th>Guest Last Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
 
-                        <th>Edit</th>
-                        <th>Delete</th>
-
-                    </tr>
-
-                    @{ 
-                        foreach (var participant in Model)
+            @{
+                foreach (var eventRegister in Model)
                 {
                     <tr>
-                        <td>@participant.ParticipantId</td>
-                        <td>@participant.ParticipantName</td>
-                        <td>@participant.ParticipantPhone</td>
-                        <td>@participant.ParticipantEvent</td>
+                        <td>@eventRegister.RegisterId</td>
+                        <td>@eventRegister.FirstName</td>
+                        <td>@eventRegister.LastName</td>
+                        <td>@eventRegister.Phone</td>
+                        <td>@eventRegister.GuestFirstName</td>
+                        <td>@eventRegister.GuestLastName</td>
+                        <td><a asp-action="EditParticipant" asp-route-id="@eventRegister.RegisterId">Edit</a></td>
+                        <td><a asp-action="DeleteParticipant" asp-route-id="@eventRegister.RegisterId">Delete</a></td>
 
-                        <td><a asp-action="EditParticipant" asp-route-id="@participant.ParticipantId">Edit</a></td>
-                        <td><a asp-action="DeleteParticipant" asp-route-id="@participant.ParticipantId">Delete</a></td>
                     </tr>
+
+
                 }
-                    }
-                </table>
             }
+        </table>
+    }
 }
+<p><a asp-controller="Admin" asp-action="AllEvent">Back to Events</a></p>

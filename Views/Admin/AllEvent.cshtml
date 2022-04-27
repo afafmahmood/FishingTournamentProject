@@ -25,6 +25,7 @@
                     <th>Event Capacity</th>
                     <th>Event URL</th>
                     <th>Event Cost</th>
+                    <th>Participants</th>
 
                 </tr>
                 @foreach (var events in Model)
@@ -37,14 +38,18 @@
                 <td>@events.EventZipCode</td>
                 <td>@events.EventPhone</td>
                 <td>@events.EventCapacity</td>
-                <td><a href="http://@events.EventURL">@events.EventURL</a></td>
+                <td><a href="http://@events.EventURL" target="_blank">@events.EventURL</a></td>
                 <td>@events.EventCost</td>
+                <td>
+                    <a align="left" asp-controller="Admin" asp-action="AllParticipant" asp-route-id="@events.EventID">View</a>
+                    <a align="right" asp-controller="Admin" asp-action="AddParticipant" asp-route-id="@events.EventID">Add</a>
+                </td>
 
             </tr>
                 }
             </table>
         </div>
-
     }
 }
+<p><a asp-controller="Admin" asp-action="Index">Back to Home</a></p>
 

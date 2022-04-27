@@ -15,55 +15,45 @@
     </tr>
 </table>
 @{
-    <form asp-controller="Account" asp-action="EventRegister" method="post">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" />
-        <br />
+    if (ViewBag.Event.EventCapacity < 1)
+    {
+        <p>Sorry this event is at full capacity, check back later.</p>
+        <p><a asp-controller="Account" asp-action="AllEvent">Back to event list</a></p>
+    }
+    else
+    {
+        <form asp-controller="Account" asp-action="EventRegister" method="post">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" />
+            <br />
 
-        <label asp-for="FirstName"></label>
-        <input asp-for="FirstName" />
-        <br />
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" />
+            <br />
 
-        <label asp-for="LastName"></label>
-        <input asp-for="LastName" />
-        <br />
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" />
+            <br />
 
-        <label asp-for="Address"></label>
-        <input asp-for="Address" />
-        <br />
+            <label asp-for="Phone"></label>
+            <input asp-for="Phone" />
+            <br />
 
-        <label asp-for="City"></label>
-        <input asp-for="City" />
-        <br />
+            <label asp-for="GuestFirstName"></label>
+            <input asp-for="GuestFirstName" />
+            <br />
 
-        <label asp-for="State"></label>
-        <input asp-for="State" />
-        <br />
+            <label asp-for="GuestLastName"></label>
+            <input asp-for="GuestLastName" />
+            <br />
 
-        <label asp-for="ZIP"></label>
-        <input asp-for="ZIP" />
-        <br />
+            <input asp-for="EventID" type="hidden"
+                   value=@ViewBag.Event.EventID />
 
-        <label asp-for="Phone"></label>
-        <input asp-for="Phone" />
-        <br />
+            <button type="submit">Submit Registration</button>
 
-        <label asp-for="GuestFirstName"></label>
-        <input asp-for="GuestFirstName" />
-        <br />
-
-        <label asp-for="GuestLastName"></label>
-        <input asp-for="GuestLastName" />
-        <br />
-
-        <input asp-for="EventID" type="hidden"
-            value=@ViewBag.Event.EventID />
-
-        <button type="submit">Submit Registration</button>
-
-    </form>
-
-
+        </form>
+    }
 
 }
 

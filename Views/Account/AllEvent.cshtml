@@ -19,7 +19,7 @@
                     <th>Event State</th>
                     <th>Event ZipCode</th>
                     <th>Event Phone</th>
-                    <th>Event Capacity</th>
+                    <th>Spots Open</th>
                     <th>Event URL</th>
                     <th>Event Cost</th>
                     <th>Register</th>
@@ -34,7 +34,7 @@
                         <td>@events.EventZipCode</td>
                         <td>@events.EventPhone</td>
                         <td>@events.EventCapacity</td>
-                        <td><a href="http://@events.EventURL">@events.EventURL</a></td>
+                        <td><a href="http://@events.EventURL" target="_blank">@events.EventURL</a></td>
                         <td>@events.EventCost</td>
                         <td><a asp-controller ="Account" asp-action="EventRegister"
                             asp-route-id="@events.EventID">Register</a></td>

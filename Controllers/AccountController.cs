@@ -106,7 +106,7 @@ namespace FishingTournament02.Controllers
         {
             db.Add(eventRegister);
             var events = await db.Events.FindAsync(eventRegister.EventID);
-            events.EventCapacity++;
+            events.EventCapacity--;
             await db.SaveChangesAsync();
             return RedirectToAction("Confirmation", "Account");
         }
