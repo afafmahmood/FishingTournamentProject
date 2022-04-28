@@ -7,7 +7,7 @@
     <br />
 
     <label asp-for="EventAddress"></label>
-    <input asp-for="EventAddress" />
+    <input asp-for="EventAddress" align="right" />
     <br />
 
     <label asp-for="EventCity"></label>
@@ -42,5 +42,17 @@
 </form>
 <br />
 <p><a asp-controller="Admin" asp-action="Index">Back to Home</a></p>
+<style>
+    label {
+        cursor: pointer;
+        display: inline-block;
+        padding: 3px 6px;
+        text-align: right;
+        width: 150px;
+        vertical-align: top;
+    }
 
-
+    input {
+        font-size: inherit;
+    }
+</style>
