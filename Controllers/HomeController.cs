@@ -47,9 +47,6 @@ namespace FishingTournament02.Controllers
             return RedirectToAction("ContactUs");
         }
 
-        public IActionResult AboutUs()
-        {
-            return View();
-        }
+       
     }
 }
