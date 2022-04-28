@@ -40,13 +40,25 @@ namespace FishingTournament02.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ContactUs(ContactUs ContactUs)
+        public async Task<IActionResult> ContactUs(MessageSent ContactUs)
         {
             db.Add(ContactUs);
             await db.SaveChangesAsync();
             return RedirectToAction("ContactUs");
         }
 
-       
+        public IActionResult MessageSent()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MessageSent(MessageSent MessageSent)
+        {
+            db.Add(MessageSent);
+            await db.SaveChangesAsync();
+            return RedirectToAction("ContactUs");
+        }
+
     }
 }

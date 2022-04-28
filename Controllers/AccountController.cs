@@ -74,7 +74,7 @@ namespace FishingTournament02.Controllers
                     return RedirectToAction("Index", "Admin");
                 }
 
-                else if (roles.Contains("Participant"))
+                else if (roles.Contains("User"))
                 {
                     return RedirectToAction("Index", "Home");
                 }
