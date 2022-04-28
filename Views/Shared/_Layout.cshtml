@@ -16,11 +16,13 @@
         {
             <p class="navbar-brand">Hello, @this.User.Identity.Name</p>
             <form method="post" asp-controller="Account" asp-action="Logout">
-                <input type="submit" value="Logout" />
+                <button class="btn btn-primary" type="submit">Logout</button>
             </form>
         }
     </nav>
     <div class="container body-content bg-light">
+        
+
         @RenderBody()
         <hr />
         <footer class="bg-info text-center">
