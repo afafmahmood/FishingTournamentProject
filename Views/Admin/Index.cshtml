@@ -7,7 +7,8 @@
 
 </head>
 <body>
-    <h1>Administration Home </h1>
+
+    <h1>Administration Home </h1>  
 
     <p><a asp-controller="Role" asp-action="AllRole">Show all roles</a></p>
 
@@ -19,8 +20,9 @@
 
     <p><a asp-controller="Admin" asp-action="AddEvent">Add an event</a></p>
 
-    <p><a asp-controller="Account" asp-action="Login">Logout</a></p>
-
+    <form method="post" asp-controller="Account" asp-action="Logout">
+        <button class="btn btn-primary" type="submit">Logout</button>
+    </form>
 
     
     @* Need to select which event to remove the participant from? Unless this is meant to remove every instance of the participant? (Brenton)
