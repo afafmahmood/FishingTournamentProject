@@ -118,17 +118,14 @@ namespace FishingTournament02.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Logout()
+        public async Task<IActionResult>Logout()
         {
             await signInManager.SignOutAsync();
             return RedirectToAction("Login");
         }
-
     }
 }
-    
-// Login added 
-
+   
 
 
 
