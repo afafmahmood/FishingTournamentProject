@@ -11,8 +11,8 @@ namespace FishingTournament02.Controllers
 { 
     public class PaymentController : Controller
     {
-        private readonly ApplicationDbContext db;
-        public PaymentController(ApplicationDbContext db)
+        private readonly Database1Context db;
+        public PaymentController(Database1Context db)
         {
             this.db = db;
         }

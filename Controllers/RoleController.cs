@@ -12,10 +12,10 @@ namespace FishingTournament02.Controllers
     //[Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
-        ApplicationDbContext db;
+        Database1Context db;
         UserManager<ApplicationUser> userManager;
         RoleManager<IdentityRole> roleManager;
-        public RoleController(ApplicationDbContext db,
+        public RoleController(Database1Context db,
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager)
         {

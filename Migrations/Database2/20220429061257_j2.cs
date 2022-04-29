@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace FishingTournament02.Migrations
+namespace FishingTournament02.Migrations.Database2
 {
-    public partial class J2 : Migration
+    public partial class j2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

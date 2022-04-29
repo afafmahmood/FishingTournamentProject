@@ -3,15 +3,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FishingTournament02.Models
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class Database1Context: IdentityDbContext<ApplicationUser>
     {
         public DbSet<Events> Events { get; set; }
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<MessageSent> ContactUs { get; set; }
         public DbSet<EventRegister> EventRegisters { get; set; }
+       
 
-        public ApplicationDbContext(DbContextOptions
-            <ApplicationDbContext> options)
+        public Database1Context(DbContextOptions
+            <Database1Context> options)
             :base(options)
         { }
 

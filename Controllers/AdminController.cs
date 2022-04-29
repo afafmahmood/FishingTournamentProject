@@ -16,10 +16,10 @@ namespace FishingTournament02.Controllers
     public class AdminController : Controller
     {
 
-        ApplicationDbContext db;
+        Database1Context db;
         UserManager<ApplicationUser> userManager;
         RoleManager<IdentityRole> roleManager;
-        public AdminController(ApplicationDbContext db,
+        public AdminController(Database1Context db,
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager)
         {

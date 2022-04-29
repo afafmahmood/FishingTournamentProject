@@ -10,8 +10,8 @@ namespace FishingTournament02.Controllers
 {
     public class PhotoController : Controller
     {
-        private readonly ApplicationDbContext db;
-        public PhotoController(ApplicationDbContext db)
+        private readonly PictureDbContext db;
+        public PhotoController(PictureDbContext db)
         {
             this.db = db;
         }
@@ -24,16 +24,16 @@ namespace FishingTournament02.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> AddPhoto(Photo p)
+        public async Task<IActionResult> AddPhoto(Picture p)
         {
             var path = Path.Combine(
                 Directory.GetCurrentDirectory(), "wwwroot\\images",
-                p.MyPhoto.FileName);
+                p.MyPicture.FileName);
             using (var stream = new FileStream(path, FileMode.Create))
             {
-                await p.MyPhoto.CopyToAsync(stream);
+                await p.MyPicture.CopyToAsync(stream);
             }
-            p.Url = p.MyPhoto.FileName;
+            p.Url = p.MyPicture.FileName;
             db.Add(p);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");

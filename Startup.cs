@@ -16,19 +16,25 @@ namespace FishingTournament02
         public void ConfigureServices(IServiceCollection services)
         {
 
-            var connection = 
+            var connectiondatabase1 =
+             
 
                  @"Server=(localdb)\mssqllocaldb; Database=FishingDb01;
                     Trusted_Connection=True;";
-            services.AddDbContext<ApplicationDbContext>
-                (options => options.UseSqlServer(connection));
+            services.AddDbContext<Database1Context>
+                (options => options.UseSqlServer(connectiondatabase1));
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddEntityFrameworkStores<Database1Context>()
                 .AddDefaultTokenProviders();
             services.AddMvc();
-        
-              
-            
+
+            var connectiondatabase2 =
+
+              @"Server=(localdb)\mssqllocaldb; Database=PictureDb;
+                    Trusted_Connection=True;";
+            services.AddDbContext<PictureDbContext>
+                (options => options.UseSqlServer(connectiondatabase2));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

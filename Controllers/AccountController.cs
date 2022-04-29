@@ -10,7 +10,7 @@ namespace FishingTournament02.Controllers
 {
     public class AccountController : Controller
     {
-        private ApplicationDbContext db;
+        private Database1Context db;
         private UserManager<ApplicationUser> userManager;
         private SignInManager<ApplicationUser> signInManager;
         private RoleManager<IdentityRole> roleManager;
@@ -18,7 +18,7 @@ namespace FishingTournament02.Controllers
 
         public AccountController(UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            RoleManager<IdentityRole> roleManager, ApplicationDbContext db)
+            RoleManager<IdentityRole> roleManager, Database1Context db)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;

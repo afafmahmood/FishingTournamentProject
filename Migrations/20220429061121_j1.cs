@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FishingTournament02.Migrations
 {
-    public partial class B1 : Migration
+    public partial class j1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

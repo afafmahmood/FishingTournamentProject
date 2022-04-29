@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FishingTournament02.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220429014027_J2")]
-    partial class J2
+    [DbContext(typeof(Database1Context))]
+    [Migration("20220429061121_j1")]
+    partial class j1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -191,28 +191,6 @@ namespace FishingTournament02.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ContactUs");
-                });
-
-            modelBuilder.Entity("FishingTournament02.Models.Photo", b =>
-                {
-                    b.Property<int>("PhotoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("AltAttribute")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Url")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("PhotoId");
-
-                    b.ToTable("Photos");
                 });
 
             modelBuilder.Entity("FishingTournament02.Models.Profile", b =>

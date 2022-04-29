@@ -15,10 +15,10 @@ namespace FishingTournament02.Controllers
     {
         //[Authorize]
 
-        ApplicationDbContext db;
+        Database1Context db;
         UserManager<ApplicationUser> userManager;
         RoleManager<IdentityRole> roleManager;
-        public HomeController(ApplicationDbContext db,
+        public HomeController(Database1Context db,
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager)
         {
