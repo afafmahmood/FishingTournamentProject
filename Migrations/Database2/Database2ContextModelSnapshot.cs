@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FishingTournament02.Migrations.Database2
 {
-    [DbContext(typeof(PictureDbContext))]
+    [DbContext(typeof(PhotoDbContext))]
     partial class Database2ContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

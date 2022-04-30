@@ -8,13 +8,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FishingTournament02.Models
 {
-    public class Picture
+    public class Photo
     {
-        public int PictureId { get; set; }
+        public int PhotoId { get; set; }
         [Required]
         public string AltAttribute { get; set; }
         [NotMapped]
-        public IFormFile MyPicture { get; set; }
+        public IFormFile MyPhoto { get; set; }
         [Display(Name = "Enter Description:")]
         public string Description { get; set; }
         [DataType(DataType.Url)]

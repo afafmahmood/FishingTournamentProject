@@ -32,7 +32,7 @@ namespace FishingTournament02
 
               @"Server=(localdb)\mssqllocaldb; Database=PictureDb;
                     Trusted_Connection=True;";
-            services.AddDbContext<PictureDbContext>
+            services.AddDbContext<PhotoDbContext>
                 (options => options.UseSqlServer(connectiondatabase2));
 
         }

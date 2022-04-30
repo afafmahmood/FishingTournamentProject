@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FishingTournament02.Migrations.Database2
 {
-    [DbContext(typeof(PictureDbContext))]
+    [DbContext(typeof(PhotoDbContext))]
     [Migration("20220429061257_j2")]
     partial class j2
     {

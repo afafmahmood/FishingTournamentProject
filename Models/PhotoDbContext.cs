@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace FishingTournament02.Models
 {
-    public class PictureDbContext : DbContext
+    public class PhotoDbContext : DbContext
 
     {
-        public DbSet<Picture>Pictures { get; set; }
-        public PictureDbContext(
-            DbContextOptions <PictureDbContext> options)
+        public DbSet<Photo> Photos { get; set; }
+
+        public PhotoDbContext(
+            DbContextOptions <PhotoDbContext> options)
             :base(options)
         {
 
