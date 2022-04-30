@@ -201,6 +201,12 @@ namespace FishingTournament02.Controllers
             db.SaveChanges();
             return RedirectToAction("AllParticipant");
         }
+
+        public IActionResult ViewMessages()
+        {
+            var contactUs = db.ContactUs.ToList();
+            return View(contactUs);
+        }
     }
 }
 

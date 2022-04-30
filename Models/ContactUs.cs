@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace FishingTournament02.Models
 {
    
-    public class MessageSent
+    public class ContactUs
     {
         
         public int Id { get; set; }

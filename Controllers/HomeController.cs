@@ -34,24 +34,27 @@ namespace FishingTournament02.Controllers
             return View();
         }
 
+       
         public IActionResult ContactUs()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> ContactUs(MessageSent ContactUs)
+        public async Task<IActionResult> ContactUs(ContactUs ContactUs)
         {
             db.Add(ContactUs);
             await db.SaveChangesAsync();
-            return RedirectToAction("ContactUs");
+            return RedirectToAction("MessageSent", "Home");
         }
+       
 
+        
         public IActionResult MessageSent()
         {
             return View();
         }
-
+        /*
         [HttpPost]
         public async Task<IActionResult> MessageSent(MessageSent MessageSent)
         {
@@ -59,6 +62,6 @@ namespace FishingTournament02.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("ContactUs");
         }
-
+        */
     }
 }

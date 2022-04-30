@@ -123,6 +123,8 @@ namespace FishingTournament02.Controllers
             await signInManager.SignOutAsync();
             return RedirectToAction("Login");
         }
+
+
     }
 }
    
