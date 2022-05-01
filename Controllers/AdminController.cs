@@ -123,24 +123,24 @@ namespace FishingTournament02.Controllers
         }
 
 
-        public IActionResult AllProfile()
-        {
-            var profiles = db.Profiles.ToList();
-            return View(profiles);
-        }
+        //public IActionResult AllProfile()
+        //{
+        //    var profiles = db.Profiles.ToList();
+        //    return View(profiles);
+        //}
 
 
-        public IActionResult AddProfile()
-        {
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> AddProfile(Profile profile)
-        {
-            db.Add(profile);
-            await db.SaveChangesAsync();
-            return RedirectToAction("AllProfile");
-        }
+        //public IActionResult AddProfile()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public async Task<IActionResult> AddProfile(Profile profile)
+        //{
+        //    db.Add(profile);
+        //    await db.SaveChangesAsync();
+        //    return RedirectToAction("AllProfile");
+        //}
 
 
         public IActionResult AllParticipant()
